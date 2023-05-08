@@ -12,7 +12,8 @@ import org.springframework.context.annotation.Profile;
  * @Import(MemoryConfig.class) : MemoryConfig 를 설정파일로 사용
  * scanBasePackages = "hello.itemservice.web" -> 컴포넌트 스캔 경로 지정, 나머지는 직접 수동 등록
  */
-@Import(MemoryConfig.class)
+//@Import(MemoryConfig.class)
+@Import(JdbcTemplateV1Config.class)
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
 
