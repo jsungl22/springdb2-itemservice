@@ -11,32 +11,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Transactional
 @SpringBootTest
 class ItemRepositoryTest {
 
     @Autowired
     ItemRepository itemRepository;
 
-    //트랜잭션 관련 코드
-    @Autowired
-    PlatformTransactionManager transactionManager; //스프링부트는 자동으로 적절한 트랜잭션 매니저를 스프링 빈으로 등록해준다
-    TransactionStatus status;
 
-    /**
-     * 각각의 테스트 케이스를 실행하기 전에 트랜잭션을 시작한다
-     * 각각의 테스트를 트랜잭션 범위 안에서 실행할 수 있다
-     */
-    @BeforeEach
-    void beforeEach() {
-        //트랜잭션 시작
-        status = transactionManager.getTransaction(new DefaultTransactionDefinition());
-    }
+    //트랜잭션 관련 코드
+//    @Autowired
+//    PlatformTransactionManager transactionManager; //스프링부트는 자동으로 적절한 트랜잭션 매니저를 스프링 빈으로 등록해준다
+//    TransactionStatus status;
+//
+//    /**
+//     * 각각의 테스트 케이스를 실행하기 전에 트랜잭션을 시작한다
+//     * 각각의 테스트를 트랜잭션 범위 안에서 실행할 수 있다
+//     */
+//    @BeforeEach
+//    void beforeEach() {
+//        //트랜잭션 시작
+//        status = transactionManager.getTransaction(new DefaultTransactionDefinition());
+//    }
 
     /**
      * 각각의 테스트 케이스가 완료된 후 트랜잭션을 롤백한다
@@ -50,7 +53,7 @@ class ItemRepositoryTest {
         }
 
         //트랜잭션 롤백
-        transactionManager.rollback(status);
+        //transactionManager.rollback(status);
     }
 
     @Test
