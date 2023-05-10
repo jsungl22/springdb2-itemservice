@@ -19,7 +19,8 @@ import javax.sql.DataSource;
 //@Import(MemoryConfig.class)
 //@Import(JdbcTemplateV1Config.class)
 //@Import(JdbcTemplateV2Config.class)
-@Import(JdbcTemplateV3Config.class)
+//@Import(JdbcTemplateV3Config.class)
+@Import(MyBatisConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 @Slf4j
 public class ItemServiceApplication {
@@ -37,8 +38,6 @@ public class ItemServiceApplication {
 	 * spring.profiles.active=local 이라고 하면 스프링은 local 이라는 프로필로 동작한다
 	 * 그래서 아래의 @Profile("local")이 동작하고, testDataInit 메서드가 스프링 빈으로 등록된다
 	 *
-	 * @param itemRepository
-	 * @return
 	 */
 	@Bean
 	@Profile("local")
@@ -54,7 +53,6 @@ public class ItemServiceApplication {
 	 * 테스트를 실행할 때 임베디드 모드(메모리 모드)로 동작하는 H2 데이터베이스를 사용 -> 실제 데이터베이스를 사용할 필요 X
 	 * 
 	 * 하지만 스프링부트는 이런 임베디드 데이터베이스에 대한 설정도 기본으로 제공하므로 생략가능하다
-	 * @return
 	 */
 //	@Bean
 //	@Profile("test")
