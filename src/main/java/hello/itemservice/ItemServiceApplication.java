@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 /**
- * @Import(MemoryConfig.class) : MemoryConfig 를 설정파일로 사용
+ * @Import(MemoryConfig.class) : V2Config 를 설정파일로 사용
  * scanBasePackages = "hello.itemservice.web" -> 컴포넌트 스캔 경로 지정, 나머지는 직접 수동 등록
  */
 //@Import(MemoryConfig.class)
@@ -23,7 +23,8 @@ import javax.sql.DataSource;
 //@Import(MyBatisConfig.class)
 //@Import(JpaConfig.class)
 //@Import(SpringDataJpaConfig.class)
-@Import(QuerydslConfig.class)
+//@Import(QuerydslConfig.class)
+@Import(V2Config.class)
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 @Slf4j
 public class ItemServiceApplication {
