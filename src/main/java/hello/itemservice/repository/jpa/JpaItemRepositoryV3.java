@@ -59,7 +59,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 
     /**
      * Querydsl 을 사용해서 동적 쿼리 문제를 해결한다
-     * 쿼리 문장에 오타가 있어도 컴파일 시점에 오류를 막을 수 있다
+     * Querydsl 의 장점은 바로 쿼리 문장에 오타가 있어도 컴파일 시점에 오류를 막을 수 있다
      * BooleanBuilder 를 사용해서 원하는 where 조건들을 넣어준다
      */
 
